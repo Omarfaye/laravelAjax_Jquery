@@ -19,18 +19,18 @@
                         <thead>
                             <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Prenom</th>
                             <th scope="col">Nom</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Description</th>
+                            <th scope="col">Login</th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach($users as $user)  
                             <tr>
                             <th scope="row">#</th>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->description}}</td>
+                            <td>{{$user->prenom}}</td>
+                            <td>{{$user->nom}}</td>
+                            <td>{{$user->login}}</td>
                             <td></td>
                             <td>
                             <div class="auhtor" style="display: flex">

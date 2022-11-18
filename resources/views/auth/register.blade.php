@@ -23,17 +23,25 @@
                         @csrf 
 
                         <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name') }}">
-                            @error('name')
+                            <label for="prenom">Prenom</label>
+                            <input type="text" name="prenom" class="form-control" value="{{ old('prenom') }}">
+                            @error('prenom')
                             <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                            @error('email')
+                            <label for="nom">Nom</label>
+                            <input type="text" name="nom" class="form-control" value="{{ old('nom') }}">
+                            @error('nom')
+                            <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="login">Login</label>
+                            <input type="text" name="login" class="form-control" value="{{ old('login') }}">
+                            @error('login')
                             <div class="error">{{ $message }}</div>
                             @enderror
                         </div>

@@ -23,12 +23,12 @@ class LoginController extends Controller
     public function login() //traitement de connexion
      {
         request()->validate([
-           'email' =>'required|email',
+           'login' => 'required',
            'password'=>'required'
         ]);
          $remember = request()->has('remember');
         // dd($remember);
-        if(Auth::attempt(['email'=>request('email'), 'password'=>request('password')], $remember)) {
+        if(Auth::attempt(['login'=>request('login'), 'password'=>request('password')], $remember)) {
            return redirect('/');
         }
         return back()->withError('Mauvais identifiants.')->withInput();

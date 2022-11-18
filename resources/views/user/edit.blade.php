@@ -26,26 +26,27 @@
                         @csrf <!--permet d'eviter les Files de securite-->
 
                         <div class="form-group">
-                            <label for="title">Nom</label>
-                            <input type="text" name="name" class="form-control" value="{{ old('name', $user->name) }}">
-                            @error('name')
+                            <label for="prenom">Prenom</label>
+                            <input type="text" name="prenom" class="form-control" value="{{ old('prenom', $user->prenom) }}">
+                            @error('prenom')
                              <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" value="{{ old('email', $user->email) }}">
-                            @error('email')
+                            <label for="nom">Nom</label>
+                            <input type="text" name="nom" class="form-control" value="{{ old('nom', $user->nom) }}">
+                            @error('nom')
+                             <div class="error">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
+                            <label for="login">Login</label>
+                            <input type="text" name="login" class="form-control" value="{{ old('login', $user->login) }}">
+                            @error('login')
                             <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <label for="context">Description</label>
-                            <textarea class="form-control" name="description" cols="30", rows="5" placeholder="description">{{ old('description', $user->description) }}</textarea>
-                            @error('description')
-                             <div class="error">{{ $message }}</div>
-                            @enderror
-                        </div>
+                    
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" name="password" class="form-control" value="{{ old('password', $user->password) }}">

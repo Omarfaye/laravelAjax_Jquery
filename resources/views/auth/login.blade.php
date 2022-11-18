@@ -25,9 +25,9 @@
                         @csrf <!--permet d'eviter les Files de securite-->
 
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" value="{{ old('email') }}">
-                            @error('email')
+                            <label for="login">Login</label>
+                            <input type="text" name="login" class="form-control" value="{{ old('login') }}">
+                            @error('login')
                             <div class="error">{{ $message }}</div>
                             @enderror
                         </div>

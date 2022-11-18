@@ -20,14 +20,16 @@ class RegisterController extends Controller
 
     public function register(){
         request()->validate([
-            'name'=>'required|min:3|max:20|unique:users',
-            'email'=>'required|email|unique:users',
+            'prenom' =>'required|min:3|max:20',
+            'nom' =>'required|min:2|max:20',
+            'login'=>'required|min:3|max:20|unique:users',
             'password'=>'required|between:5,20',
         ]);
 
         $user = new User();
-        $user->name = request('name');
-        $user->email = request('email');
+        $user->prenom = request('prenom');
+        $user->nom = request('nom');
+        $user->login = request('login');
         $user->password = bcrypt(request('password'));
 
         $user->save();

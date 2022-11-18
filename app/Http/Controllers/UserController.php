@@ -37,12 +37,26 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+  //  public function store(UserRequest $request)
+   public function store()
     {
         //Reuperer les données d'entrées  valides
-        $validData = $request->validated();
+       // $validData = $request->validated();
+      //  Auth::User()->create($validData);
+      request()->validate([
+        'prenom' =>'required|min:3|max:20',
+        'nom' =>'required|min:2|max:20',
+        'login'=>'required|min:3|max:20|unique:users',
+        'password'=>'required|between:5,20',
+    ]);
 
-        Auth::User()->create($validData);
+        $user = new User();
+        $user->prenom = request('prenom');
+        $user->nom = request('nom');
+        $user->login = request('login');
+        $user->password = bcrypt(request('password'));
+
+        $user->save();
 
         $success = 'Utilisateur Ajouter';
         return back()->withSuccess($success);
@@ -84,10 +98,10 @@ class UserController extends Controller
         $user = User::find($id);
         if($user){
             $user->update([
-               'name'=>$request->input('name'),
-               'email'=>$request->input('email'),
-               'description'=>$request->input('description'),
-               'password'=>$request->input('password')
+               'prenom'=>$request->input('prenom'),
+               'nom'=>$request->input('nom'),
+               'login'=>$request->input('login'),
+               'password'=>bcrypt($request->input('password'))
             ]);
         }
         $success = 'Utilisateur Modifier';
